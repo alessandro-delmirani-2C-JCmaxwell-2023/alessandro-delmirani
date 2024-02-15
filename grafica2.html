@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <input type="number" id="numerodiv"/>
+  <button onclick="creadiv()">crea div</button>
+  <div id="container"></div>
+  <script>
+    function creadiv() {
+      var numero = document.getElementById("numerodiv").value;
+      var contenitore = document.getElementById("container");
+      
+//anche se nella consegna non era scritto ho deciso comuqnue di azzerare il numero dei container che andavamo a generare sennò si generavano container sopra altri container in questo modo ogni volta che viene richiamata la funzione si azzera il numero della variabile container
+      
+      contenitore.innerHTML = ""; //qui modifico modifico il contenitore e lo svuoto
+      
+        for (var i = 0; i < numero; i++) {
+        var div = document.createElement("div");
+        div.style.border = "1px solid black";
+        div.style.width = "10px";
+        div.style.height = "10px";
+       
+        div.style.backgroundColor = "lightgray";
+          //mentre qui incremento il contenitore per aggiungere il codice HTML dell'elelemento div 
+        contenitore.innerHTML = contenitore.innerHTML + div.outerHTML; 
+      }
+    }
+  </script>
+</body>
+
+</html>
