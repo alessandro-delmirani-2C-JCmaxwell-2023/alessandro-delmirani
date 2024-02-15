@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    #testo{
+      text-align: center;
+      color: black;
+    }
+    #number{
+      display: block;
+      color: green;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <p id="testo">Scrivi quanto pesi per vedere il tuo peso sui diversi pianeti</p>
+  <input class id="i" type="number" ></input>
+  <button onclick="pianeti()">genera i pesi dei pianeti</button>
+  <p id="peso"></p>
+  <script>
+    function pianeti() {
+      var p = document.getElementById("i").value;
+      var m = p / 9.81;
+      var Mercurio = m * 3.7;
+      var Venere = m * 8.87;
+      var Marte = m * 3.711;
+      var Giove = m * 24.79;
+      var Saturno = m * 10.44;
+      var Urano = m * 8.69;
+      var Nettuno = m * 11.15;
+      var Plutone = m * 0.62;
+      document.getElementById("peso").innerHTML+= "Peso sul pianeta Marte: " + Marte + "<br>";
+      document.getElementById("peso").innerHTML+= "Peso sul pianeta Marcurio: " + Mercurio + "<br>";
+      document.getElementById("peso").innerHTML+= "Peso sul pianeta Giove: " + Giove + "<br>";
+      document.getElementById("peso").innerHTML+= "Peso sul pianeta Saturno: " + Saturno + "<br>";
+      document.getElementById("peso").innerHTML+= "Peso sul pianeta Urano: " + Urano + "<br>";
+      document.getElementById("peso").innerHTML+= "Peso sul pianeta Nettuno: " + Nettuno + "<br>";
+      document.getElementById("peso").innerHTML+= "Peso sul pianeta Plutone: " + Plutone + "<br>";
+      document.getElementById("peso").innerHTML+= "Peso sul pianeta Venere: " + Venere + "<br>";
+    } 
+  </script>
+</body>
+
+</html>
