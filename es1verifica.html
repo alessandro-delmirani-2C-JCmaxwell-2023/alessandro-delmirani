@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Calcolo dell'IMC</h1><br>
+        <label for="peso">Inserisci il tuo peso: </label>
+
+
+        <input type="text" id="peso" name="peso" required> <br>
+
+
+        <label for="altezza">Inserisci la tua altezza : </label>
+
+
+        <input type="text" id="altezza" name="altezza" required>
+
+
+        <button type="button" onclick="calcolo()">Calcola</button>
+        <p id="IMC"></p>
+        <p id="risultato"></p>
+        <script>
+            function calcolo(){
+                let peso=document.getElementById("peso").value;
+                let altezza=document.getElementById("altezza").value;
+                let IMC="";
+                IMC=peso/(altezza*altezza);
+                document.getElementById("IMC").innerHTML= IMC;
+                if(IMC<18.5) document.getElementById("risultato").innerHTML= "Sei Sottopeso";
+
+
+                if(IMC>=18.5 && IMC<25) document.getElementById("risultato").innerHTML= "Sei Normopeso";
+
+
+                if(IMC>=25 && IMC<30) document.getElementById("risultato").innerHTML= "Sei Sovrappeso";
+
+
+                if(IMC>=30) document.getElementById("risultato").innerHTML= "Sei Obeso";
+            }
+        </script>
+    </body>
+</html>
