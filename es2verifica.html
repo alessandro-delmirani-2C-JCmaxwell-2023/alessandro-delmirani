@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>es 2 verifica</h1><br>
+        <input type="text" id="numero" name="numero" required> <br>
+        <button onclick="calcola1()">+2</button>
+        <button onclick="calcola2()">+3</button>
+        <button onclick="calcola3()">+7</button>
+        <p id="risultato"></p> <br>
+        <p id="risultato2"></p> <br>
+        <p id="risultato3"></p>
+        <script>
+function calcola1() {
+  let n1 = +document.getElementById("numero").value;
+  n1 += 2;
+document.getElementById("risultato").innerText += n1 + " ";
+}
+function calcola2() {
+  let n2= +document.getElementById("numero").value;
+  n2+=3;
+  document.getElementById("risultato2").innerHTML += n2 + " ";
+}
+function calcola3() {
+  let n3= +document.getElementById("numero").value;
+  n3+=7;
+  document.getElementById("risultato3").innerHTML += n3 + " ";
+}
+        </script>
+    </body>
+</html>
