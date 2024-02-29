@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button onclick="bottone1()">istruzioni</button>
+        <button onclick="bottone2()">Drink</button>
+        <button onclick="bottone3()">ordina</button>
+        <p id="risposta"></p>
+        <p id="risposta2"></p>
+        <p id="bevanda1"></p>
+        <p id="bevanda2"></p>
+        <p id="bevanda3"></p>
+        <p id="bevanda4"></p>
+        <p id="bevanda5"></p>
+        <p id="bevanda6"></p>
+        <p id="bevanda7"></p>
+        <p id="bevanda8"></p>
+        <p id="bevanda9"></p>
+        <p id="bevanda10"></p>
+        <script>
+            
+          let cont=0;
+         function bottone1() {
+            document.getElementById("risposta2").innerHTML = " " ; 
+            document.getElementById("bevanda1").innerHTML = " ";
+            document.getElementById("bevanda2").innerHTML = " ";
+            document.getElementById("bevanda3").innerHTML = " ";
+            document.getElementById("bevanda4").innerHTML = " ";
+            document.getElementById("bevanda5").innerHTML = " ";
+            document.getElementById("bevanda6").innerHTML = " ";
+            document.getElementById("bevanda7").innerHTML = " ";
+            document.getElementById("bevanda8").innerHTML = " ";
+            document.getElementById("bevanda9").innerHTML = " ";
+            document.getElementById("bevanda10").innerHTML = " ";
+          cont++;
+          if (cont==1) {
+            document.getElementById("risposta").innerHTML = "ciao" ; 
+          }
+          if (cont==2) {
+            document.getElementById("risposta").innerHTML = "sono un chatbot pronto per servirti" ; 
+          }
+          if (cont==3) {
+            document.getElementById("risposta").innerHTML = "premi il bottone 'Drink' per aprire la lista dei drink" ; 
+          }
+          if (cont>=4) {
+            document.getElementById("risposta").innerHTML = " " ;
+            cont=0;
+          }
+         }
+         function bottone2() {
+            document.getElementById("risposta").innerHTML = "ecco le bevande a disposizione : ";
+            document.getElementById("bevanda1").innerHTML = "-cocacola";
+            document.getElementById("bevanda2").innerHTML = "-cocacola zero";
+            document.getElementById("bevanda3").innerHTML = "-estathé";
+            document.getElementById("bevanda4").innerHTML = "-sprite";
+            document.getElementById("bevanda5").innerHTML = "-negroni";
+            document.getElementById("bevanda6").innerHTML = "-vino rosso";
+            document.getElementById("bevanda7").innerHTML = "-vino bianco";
+            document.getElementById("bevanda8").innerHTML = "-mojito";
+            document.getElementById("bevanda9").innerHTML = "-vodka";
+            document.getElementById("bevanda10").innerHTML = "-birra";
+         }
+         function bottone3() { 
+            document.getElementById("risposta").innerHTML = " ";
+            document.getElementById("bevanda1").innerHTML = " ";
+            document.getElementById("bevanda2").innerHTML = " ";
+            document.getElementById("bevanda3").innerHTML = " ";
+            document.getElementById("bevanda4").innerHTML = " ";
+            document.getElementById("bevanda5").innerHTML = " ";
+            document.getElementById("bevanda6").innerHTML = " ";
+            document.getElementById("bevanda7").innerHTML = " ";
+            document.getElementById("bevanda8").innerHTML = " ";
+            document.getElementById("bevanda9").innerHTML = " ";
+            document.getElementById("bevanda10").innerHTML = " ";
+            document.getElementById("risposta2").innerHTML = "Cosa vuole ordinare ? " ; 
+            
+         }
+        </script>
+    </body>
+</html>
