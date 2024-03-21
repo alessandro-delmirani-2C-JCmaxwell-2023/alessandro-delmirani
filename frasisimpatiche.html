@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Array di frasi simpatiche</title>
+  
+    <style>
+#bottone {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    position: absolute;
+    top:3%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#output {
+    text-align: center;
+    position: absolute;
+    top:6%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+    </style>
+</head>
+<body>  
+    <button id="bottone" onclick="generafrase()">Genera frase</button> 
+    <p id="output"></p>
+    <script>
+        const verbi = ["mangiare", "correre", "nuotare", "dormire", "giocare", "cantare", "leggere", "scrivere", "saltare", "pensare"];
+        const soggetti = ["io", "tu", "lui", "lei", "noi", "voi", "loro", "Anna", "Luca", "Maria"];
+        const complementiOggetto = ["la mela", "il libro", "la casa", "il caffè", "la musica", "il film", "la torta", "la palla", "il computer", "il sole"];
+        const aggettivi = ["simpatico", "intelligente", "felice", "curioso", "forte", "gentile", "divertente", "simplice", "tranquillo", "creativo"];
+
+        function generafrase() {
+            var soggetto = soggetti[Math.floor(Math.random() * soggetti.length)];
+            var verbo = verbi[Math.floor(Math.random() * verbi.length)];
+            var compl = complementiOggetto[Math.floor(Math.random() * complementiOggetto.length)];
+            var aggettivo = aggettivi[Math.floor(Math.random() * aggettivi.length)];
+            
+            let frase = soggetto + " " + verbo + " " + compl + " " + aggettivo + ".";
+            document.getElementById("output").innerText = frase;   
+        }
+    </script>
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
