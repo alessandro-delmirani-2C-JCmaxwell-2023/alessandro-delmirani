@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            ul{
+                list-style-type: none;
+                padding: 0;
+            }
+            li{
+                padding: 10px;
+                border-bottom: 1px solid #ccc;
+            }
+            li:last-child{
+                border-bottom: none;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="array"></p>
+        <button onclick="Conta()">Conta tutti gli elementi</button>
+        <p id="out1"></p>
+        <button onclick="Aggiungi()">Aggiungi un Drink</button>
+        <p></p>
+        <button onclick="Elimina()">Elimina Drink</button>
+        <p></p>
+        <button onclick="Acquista()">Acquista Drink</button>
+        <p id="out2"></p>
+        
+<script>
+let Drink = ["coca-cola", "pepsi", "birra", "negroni", "vodka"];
+let ordini = [];
+mostra();
+function mostra(){
+document.getElementById("array").innerHTML = "Drink: " + Drink.join(", ");
+}
+function Conta(){
+document.getElementById("out1").innerHTML = "Sono presenti " + Drink.length + " Drink";
+}
+function Aggiungi(){
+bevanda = prompt("Aggiungi un Drink: ");
+Drink.push(bevanda);
+mostra();
+}
+function Elimina(){
+Drink.pop();
+mostra();
+}
+function Acquista(){
+let ordine = prompt("Inserisci il numero del Drink che vuoi bere");
+ordini.push(Drink.at(ordine-1));
+document.getElementById("out2").innerHTML = "Ordine: " + ordini.join(", ");
+}
+        </script>
+    </body>
+</html>
