@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 Div con 100 numeri casuali</title>
+   
+    <style>
+       
+        .quadrato{
+            width: 20px;
+            height: 20px;
+            border: 1px solid black;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .pink{
+            background-color: pink;
+        }
+
+        .blue{
+            background-color: rgb(97, 97, 211);
+        }
+        .green {
+            background-color: green;
+        }
+        .azzurro {
+            background-color: cyan;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <h1>leggenda di colori</h1>
+    <p>rosa: multipli di 2 <br>
+       verde: multipli di 5 <br>
+       cyano: multiplidi di 7 <br>
+       blue: restanti <br>
+    </p>
+    <div class="quadrato pink">1</div>
+    <script>
+        let nc;
+        let multipli5 = [];
+        let multipli7 = [];
+        for(let i=0; i <100;i++){
+            nc=Math.floor(Math.random()*100);
+            if(nc%2==0 && nc!==0){
+                document.write("<div class='quadrato pink'>"+nc+"</div>")
+            }
+            if (nc%5==0 && nc!==0) {
+                multipli5.push(nc);
+                document.write("<div class='quadrato green'>"+nc+"</div>")
+            }
+            if (nc%7==0 && nc!==0) {
+                multipli7.push(nc);
+                document.write("<div class='quadrato azzurro'>"+nc+"</div>")
+            }
+            else{
+                document.write("<div class='quadrato blue'>"+nc+"</div>")
+            }
+        }
+    </script>
+
+</body>
+</html>
