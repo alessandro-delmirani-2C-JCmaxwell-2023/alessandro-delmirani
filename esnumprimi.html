@@ -63,14 +63,19 @@
             // Aggiorna il numero casuale
             numbersDiv.textContent = `Numero Casuale: ${randomNumber}`;  
             const box = document.getElementById('primi');
-            if (randomNumber <= 1) return false; // 0 e 1 non sono primi
+            let isprime = true; 
+            if (randomNumber <= 1) isprime = false; // 0 e 1 non sono primi
             for (let i = 2; i <= Math.sqrt(randomNumber); i++) {
                 if (randomNumber % i === 0) {
-                    box.textContent = "il numero non è primo";
-                } else {
-                    box.textContent = "il numero è primo";
-                }
+                    isprime = false;
+                    break;
+                } 
             }
+            if (isprime) {
+            box.textContent = "Il numero è primo";
+    }       else {
+            box.textContent = "Il numero non è primo";
+    }
         }
         
 
