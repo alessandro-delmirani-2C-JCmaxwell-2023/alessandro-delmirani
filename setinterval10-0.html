@@ -1,0 +1,92 @@
+    <!DOCTYPE html>
+    <html>
+    
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <title>replit</title>
+      <link href="style.css" rel="stylesheet" type="text/css" />
+      <style>
+        #container {
+          width: 340px;
+          height: 300px;
+          position: relative;
+          background: green;
+        }
+        #testo {
+          text-align: center;
+        }
+        #contatore {
+          text-align: center;
+          align-items: center;
+        }
+        #daniele {
+            text-align: center;
+            align-items: center;
+        }
+        #NumeriCasuali {
+            text-align: center;
+            align-items: center;
+        }
+        #izzo {
+            text-align: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 23%;
+        }
+        #buots {
+            text-align: center;
+            align-items: center;
+        }
+      </style>
+    </head>
+    
+    <body>
+      <div id="container">
+        <p id="testo">contatore da 3 a 0 </p>
+        <p id="contatore">3</p>
+        <p id="NumeriCasuali"></p>
+        <p id="daniele"> inserisci il numero che manca</p>
+        <input id="izzo" Type="text" name="lname"><br><br> 
+        <p id="buots"></p>
+    
+      </div>
+      <script>
+        let punti = 0;
+        var cont = 3;
+        var timer = setInterval(function(){
+          cont--;
+          document.getElementById("contatore").innerHTML = cont;
+        if (cont==0) {
+          clearInterval(timer);
+          NumeroCasuale();
+        }
+        } ,1000);
+        function NumeroCasuale() {
+            let indovino = parseInt(document.getElementById("izzo").value);
+            let app = true;
+            let Numeri = [];
+            var timer2 = setInterval(function() { 
+    for (let i = 0; i < 10; i++) {
+      Numeri[i] = Math.floor(Math.random() * 11);
+      document.getElementById("NumeriCasuali").innerHTML = Numeri;
+      document.getElementById("NumeriCasuali").innerHTML += "   ";
+    }
+    for (i =0 ; i<10; i++) {
+          if (Numeri[i] == indovino) {
+            app = false;
+            break;
+          }
+        }
+        if (app == true) {
+          punti++;
+        }
+        document.getElementById("buots").innerHTML = "punteggio: " + punti ;
+      }, 5000);
+    }
+  </script>
+</body>
+
+</html>
+    
