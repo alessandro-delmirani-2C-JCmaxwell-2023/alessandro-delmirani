@@ -166,6 +166,30 @@
         #start:hover {
             background-color: #34495e;
         }
+        #p1 {
+            height: 100px;
+            width: 100px;
+            background-color: #4e73df;
+            border: 2px solid #1f3a77;
+            border-radius: 8px;
+            position: relative;
+            left: 1550px;
+            bottom: 1275px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);   
+        }
+        #p2 {
+            height: 100px;
+            width: 100px;
+            background-color: #e74a3b;
+            border: 2px solid #9f1e11;
+            border-radius: 8px;
+            position: relative;
+            left: 1550px;
+            bottom: 694px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);   
+        }
     </style>
 </head>
 <body>
@@ -203,6 +227,12 @@
     <div id="timer">
         <p id="t"></p>
     </div>
+    <div id="p1">
+        <p>punti :</p>
+    </div>
+    <div id="p2">
+        <p>punti :</p>
+    </div>
 
     <script>
         let timer;
@@ -210,36 +240,50 @@
         let v1 = 5;
         let v2 = 5;
         let currentQuestion;
+        let nomeGiocatore1 = "Giocatore 1";
+        let nomeGiocatore2 = "Giocatore 2";
+        let punteggioGiocatore1 = 0; // Punti di Giocatore 1
+        let punteggioGiocatore2 = 0; // Punti di Giocatore 2
+    
         const domande = [
-            { question: "Qual è la capitale d'Italia?", answer: "Roma" },
-            { question: "Qual è il colore del cielo?", answer: "Blu" },
-            { question: "Quante gambe ha un cane?", answer: "4" },
-            { question: "Quante stagioni ci sono in un anno?", answer: "4" },
-            { question: "Qual è l'elemento chimico con il simbolo O?", answer: "Ossigeno" },
-            { question: "Quante dita ha una mano?", answer: "5" },
-            { question: "Chi ha dipinto la Gioconda?", answer: "Leonardo" },
-            { question: "Quanto fa 2+2?", answer: "4" },
-            { question: "Qual è la moneta usata in Giappone?", answer: "Yen" },
-            { question: "Qual è il pianeta più vicino al sole?", answer: "Mercurio" },
-            { question: "In quale stagione dell'anno cade il Natale?", answer: "Inverno" },
-            { question: "Qual è la lingua ufficiale della Spagna?", answer: "Spagnolo" },
-            { question: "Quanto fa 3+5?", answer: "8" },
-            { question: "Quanti giorni ha una settimana?", answer: "7" },
-            { question: "Qual è il frutto che dà il succo d'arancia?", answer: "Arancia" },
-            { question: "Qual è l'animale che è il simbolo dell'Australia?", answer: "Canguro" },
-            { question: "Qual è il simbolo chimico dell'acqua?", answer: "H2O" },
-            { question: "Chi ha scritto 'Il Piccolo Principe'?", answer: "Saint-Exupéry" },
-            { question: "Quanti colori ha l'arcobaleno?", answer: "7" },
-            { question: "In quale mese inizia l'estate?", answer: "Giugno" },
-            { question: "Qual è il nome del famoso topo della Disney?", answer: "Topolino" },
-            { question: "Chi ha creato l'opera one piece ? ", answer: "Oda" },
-            { question: "In quale paese si trova la Torre Eiffel?", answer: "Francia" },
-            { question: "Che forma ha la terra?", answer: "Sferica" },
-            { question: "Chi è il presidente degli Stati Uniti?", answer: "Joe Biden" },
-            { question: "In che mese è festeggiato Halloween?", answer: "Ottobre" }
-        ];
+    { question: "Qual è la capitale d'Italia?", answer: "Roma" },
+    { question: "Qual è il colore del cielo?", answer: "Azzurro" }, // Più comune dire "azzurro"
+    { question: "Quante gambe ha un cane?", answer: "4" },
+    { question: "Quante stagioni ci sono in un anno?", answer: "4" },
+    { question: "Qual è l'elemento chimico con il simbolo O?", answer: "Ossigeno" },
+    { question: "Quante dita ha una mano?", answer: "5" },
+    { question: "Chi ha dipinto la Gioconda(nome)?", answer: "Leonardo" }, // Nome completo
+    { question: "Quanto fa 2+2?", answer: "4" },
+    { question: "Qual è la moneta usata in Giappone?", answer: "Yen" },
+    { question: "Qual è il pianeta più vicino al sole?", answer: "Mercurio" },
+    { question: "In quale stagione dell'anno cade il Natale?", answer: "Inverno" },
+    { question: "Qual è la lingua ufficiale della Spagna?", answer: "Spagnolo" },
+    { question: "Quanto fa 3+5?", answer: "8" },
+    { question: "Quanti giorni ha una settimana?", answer: "7" },
+    { question: "Qual è il frutto che dà il succo d'arancia?", answer: "Arancia" },
+    { question: "Qual è l'animale che è il simbolo dell'Australia?", answer: "Canguro" },
+    { question: "Qual è il simbolo chimico dell'acqua?", answer: "H2O" },
+    { question: "Quante ore ci sono in un giorno?", answer: "24" }, // Nome completo
+    { question: "Quanti colori ha l'arcobaleno?", answer: "7" },
+    { question: "In quale mese inizia l'estate?", answer: "Giugno" },
+    { question: "Qual è il nome del famoso topo della Disney?", answer: "Topolino" },
+    { question: "Chi ha creato l'opera One Piece?", answer: "Eiichiro Oda" }, // Nome completo
+    { question: "In quale paese si trova la Torre Eiffel?", answer: "Francia" },
+    { question: "Che forma ha la Terra?", answer: "Sferica" }, // Con "T" maiuscola
+    { question: "Chi è il presidente degli Stati Uniti?", answer: "trump" }, // Attuale (fino al 2024)
+    { question: "In che mese è festeggiato Halloween?", answer: "Ottobre" }
+];
     
         function Startgame() {
+            // Richiedi i nomi dei giocatori solo se sono quelli di default
+            if (nomeGiocatore1 === "Giocatore 1" && nomeGiocatore2 === "Giocatore 2") {
+                nomeGiocatore1 = prompt("Inserisci il nome del Giocatore 1:", "Giocatore 1") || "Giocatore 1";
+                nomeGiocatore2 = prompt("Inserisci il nome del Giocatore 2:", "Giocatore 2") || "Giocatore 2";
+    
+                // Aggiorna i nomi e punteggi nei div
+                aggiornaNomiEPunteggi();
+            }
+    
             if (timer) {
                 clearInterval(timer);
             }
@@ -251,6 +295,14 @@
             n = 30;
             document.getElementById("t").textContent = n;
             timer = setInterval(tempo, 1000);
+        }
+    
+        function aggiornaNomiEPunteggi() {
+            document.getElementById("g1").innerHTML = `<p>${nomeGiocatore1}</p>`;
+            document.getElementById("g2").innerHTML = `<p>${nomeGiocatore2}</p>`;
+
+            document.getElementById("p1").innerHTML = `<p>Punti: ${punteggioGiocatore1}</p>`;
+            document.getElementById("p2").innerHTML = `<p>Punti: ${punteggioGiocatore2}</p>`;
         }
     
         function tempo() {
@@ -296,23 +348,30 @@
     
                 if (player === 1) {
                     v2 -= damage;
-                    alert(`Giocatore 1 ha risposto correttamente utilizzando una ${weapon}! Ha tolto ${damage} vite a Giocatore 2.`);
+                    alert(`${nomeGiocatore1} ha risposto correttamente utilizzando una ${weapon}! Ha tolto ${damage} vite a ${nomeGiocatore2}.`);
                 } else {
                     v1 -= damage;
-                    alert(`Giocatore 2 ha risposto correttamente utilizzando una ${weapon}! Ha tolto ${damage} vite a Giocatore 1.`);
+                    alert(`${nomeGiocatore2} ha risposto correttamente utilizzando una ${weapon}! Ha tolto ${damage} vite a ${nomeGiocatore1}.`);
                 }
     
                 clearInterval(timer); // Blocca il timer solo in caso di risposta corretta
                 updateLives();
     
                 if (v1 <= 0 || v2 <= 0) {
-                    alert(v1 <= 0 ? "Giocatore 2 vince!" : "Giocatore 1 vince!");
+                    if (v1 <= 0) {
+                        punteggioGiocatore2++;
+                        alert(`${nomeGiocatore2} vince!`);
+                    } else {
+                        punteggioGiocatore1++;
+                        alert(`${nomeGiocatore1} vince!`);
+                    }
+                    aggiornaNomiEPunteggi();
                     resetGame();
                 } else {
                     Startgame(); // Passa alla domanda successiva
                 }
             } else {
-                alert(`Risposta errata, ${player === 1 ? "Giocatore 1" : "Giocatore 2"}`);
+                alert(`Risposta errata, ${player === 1 ? nomeGiocatore1 : nomeGiocatore2}`);
             }
         }
     
@@ -327,6 +386,8 @@
             document.getElementById("d").textContent = "Premi 'Inizia Partita' per ricominciare.";
         }
     </script>
+    
+    
     
 </body>
 </html>
